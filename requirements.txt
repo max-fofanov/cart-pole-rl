@@ -1,0 +1,4 @@
+gymnasium[classic-control]~=0.29.1
+
+torch~=2.0.0
+numpy~=1.23.1
