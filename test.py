@@ -1,7 +1,7 @@
 import random
 import numpy as np
 import torch
-import gymnasium as gym
+import gym
 from src import DQLearner
 
 # set everything random for reproducibility
@@ -10,9 +10,9 @@ random.seed(0)
 np.random.seed(0)
 
 # create an environment
-env = gym.make('CartPole-v1', render_mode='human')
+env = gym.make("CartPole-v1", render_mode="human")
 learner = DQLearner(env)
-learner.load("./models/e=1299_r=3109.7_.pt")
+learner.load("./models/e=3649_r=701.04_q=404.06442136582086.pt")
 
 
 state, _ = env.reset()
@@ -22,7 +22,7 @@ total_reward = 0
 terminated = False
 
 while not terminated:
-    action = learner.choose_action(state)
+    action = learner.choose_action(state, inference=True)
     state, reward, terminated, _, _ = env.step(action)
     total_reward += reward
 

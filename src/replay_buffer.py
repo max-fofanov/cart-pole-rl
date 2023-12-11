@@ -26,5 +26,8 @@ class ReplayBuffer:
     def clean(self):
         self.buffer.clear()
 
+    def full(self):
+        return self.buffer.maxlen == len(self.buffer)
+
     def __len__(self) -> int:
         return len(self.buffer)

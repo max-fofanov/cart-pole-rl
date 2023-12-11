@@ -1,7 +1,7 @@
 import random
 import numpy as np
 import torch
-import gymnasium as gym
+import gym
 from src import DQLearner
 
 # set everything random for reproducibility
@@ -10,7 +10,7 @@ random.seed(0)
 np.random.seed(0)
 
 # create an environment
-env = gym.make('CartPole-v1', render_mode='human')
+env = gym.make("CartPole-v1")
 learner = DQLearner(env)
 
 learner.train(

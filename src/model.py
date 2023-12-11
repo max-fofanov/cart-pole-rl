@@ -1,20 +1,18 @@
-from typing import Tuple
-
 import torch
 from torch import nn
 
 
 class DQModel(nn.Module):
 
-    def __init__(self):
+    def __init__(self, in_features, out_features):
         super().__init__()
 
         self.network = nn.Sequential(
-            nn.Linear(4, 128),
+            nn.Linear(in_features, 128),
             nn.ReLU(),
-            nn.Linear(128, 64),
+            nn.Linear(128, 128),
             nn.ReLU(),
-            nn.Linear(64, 2),
+            nn.Linear(128, out_features),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
